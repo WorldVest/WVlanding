@@ -267,17 +267,15 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
   <div class="banner">
     <!--
       ▼ YOUR IMAGE ▼
-      Replace YOUR-USER and YOUR-REPO below with your GitHub username and repo.
-      Must be the RAW url. Filename: wvlandingimage.jpg
+      Put wvlandingimage.jpg in the SAME folder as this HTML file in your repo.
+      The relative path below will find it automatically — no full URL needed.
 
       ▼ FOR AN MP4 LOOP INSTEAD ▼  (swap the <img> for this:)
       <video class="banner-media" autoplay muted loop playsinline poster="wvlandingimage.jpg">
-        <source src="YOUR-EARTH-LOOP.mp4" type="video/mp4">
+        <source src="wvlandingloop.mp4" type="video/mp4">
       </video>
     -->
-   <img class="banner-media" 
-     src="https://raw.githubusercontent.com/WorldVest/WVlanding/main/wvlandingimage.jpg" 
-     alt="Earth at night from orbit">
+    <img class="banner-media" src="wvlandingimage.jpg" alt="Earth at night from orbit">
     <div class="banner-fade" aria-hidden="true"></div>
   </div>
 
