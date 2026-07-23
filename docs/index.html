@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WorldVest — The global stablecoin for institutions</title>
+<title>WorldVest.AI — Alternative funding for employee benefits</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Albert+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --space:#05080F;
   --surface:#0A111E;
   --surface-2:#0E1626;
   --green:#2EBD6B;
+  --green-bright:#41D982;
   --green-dark:#249757;
   --ice:#F2F6FA;
   --mist:#C7D4DF;
@@ -49,7 +50,8 @@ nav{
 }
 .nav-inner{display:flex;align-items:center;height:60px}
 .logo{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ice);text-decoration:none;letter-spacing:.01em}
-.logo::after{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-left:5px;position:relative;top:-1px}
+.logo .dot{color:var(--green)}
+
 
 /* ---------- Hero image banner (no text on it) ---------- */
 /*
@@ -84,6 +86,7 @@ nav{
   line-height:1;letter-spacing:-.01em;
 }
 .brand-title::after{content:none}
+
 .brand-slogan{
   margin-top:12px;
   font-family:var(--display);font-style:italic;
@@ -95,9 +98,18 @@ nav{
   margin:34px auto 0;max-width:62ch;
   font-size:clamp(1.02rem,1.5vw,1.15rem);color:var(--mist);line-height:1.8;
 }
-.brand-audience{
-  margin-top:16px;font-family:var(--mono);
-  font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);
+.brand-statement{
+  margin:24px auto 0;max-width:none;
+  font-family:var(--body);font-weight:500;font-style:italic;
+  font-size:clamp(.95rem,1.9vw,1.28rem);
+  text-transform:uppercase;
+  line-height:1.65;letter-spacing:.13em;
+  color:var(--green-bright);
+}
+@media(max-width:560px){
+  .brand-statement{
+    font-size:.85rem;letter-spacing:.1em;
+  }
 }
 .brand-actions{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn{
@@ -131,8 +143,9 @@ h2{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.2vw,2.3re
 .peg-eq .tok{color:var(--green)}
 .peg-eq .eq{color:var(--faint);font-size:.6em;position:relative;top:-.12em}
 .peg-note{
-  margin-top:18px;font-size:.9rem;color:var(--mist);font-weight:400;
+  margin-top:20px;font-size:clamp(.92rem,1.4vw,1.02rem);color:var(--mist);font-weight:400;
 }
+.peg-note .coin-name{color:var(--ice);font-weight:500}
 .chains{
   margin-top:14px;font-family:var(--mono);font-size:.72rem;
   letter-spacing:.08em;color:var(--faint);
@@ -153,7 +166,7 @@ h2{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.2vw,2.3re
 .stats-fine{margin-top:16px;font-size:.8rem;color:var(--faint)}
 
 /* ---------- Trust / partners strip ---------- */
-.trust{padding:clamp(40px,6vh,64px) 0;text-align:center}
+.trust{padding:clamp(48px,8vh,80px) 0 clamp(80px,12vh,130px);text-align:center}
 .trust-label{
   font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--faint);margin-bottom:28px;
@@ -172,11 +185,30 @@ h2{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.2vw,2.3re
 
 /* ---------- Use cases ---------- */
 .pillars{padding:clamp(64px,10vh,110px) 0}
-.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 @media(max-width:760px){.pillar-grid{grid-template-columns:1fr}}
 .pillar{
   background:var(--surface);border:1px solid var(--line);border-radius:6px;
   padding:32px 28px;
+}
+.pillar-lead{
+  grid-column:1 / -1;
+  border-color:rgba(46,189,107,.35);
+  padding:38px clamp(28px,4vw,44px);
+}
+.pillar-lead h3{font-size:1.5rem}
+.pillar-lead p{font-size:1rem;max-width:70ch}
+.pillar-list{
+  margin-top:22px;padding:0;list-style:none;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;
+}
+@media(max-width:640px){.pillar-list{grid-template-columns:1fr}}
+.pillar-list li{
+  color:var(--mist);font-size:.92rem;padding-left:20px;position:relative;
+}
+.pillar-list li::before{
+  content:'';position:absolute;left:0;top:.62em;
+  width:6px;height:6px;border-radius:50%;background:var(--green);
 }
 .pillar-tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:14px;font-weight:500}
 .pillar h3{font-family:var(--display);font-weight:500;font-size:1.22rem;margin-bottom:10px}
@@ -187,23 +219,13 @@ h2{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.2vw,2.3re
 .held-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,44px)}
 @media(max-width:760px){.held-steps{grid-template-columns:1fr}}
 .held-step h3{font-family:var(--display);font-weight:500;font-size:1.2rem;margin-bottom:8px;padding-top:16px;border-top:2px solid var(--green);display:inline-block;min-width:60%}
+.held-q{color:var(--ice);font-size:.95rem;font-weight:500;margin-bottom:8px}
 .held-step p{color:var(--mist);font-size:.93rem;line-height:1.7}
 .held-fine{margin-top:44px;font-size:.86rem;color:var(--mist)}
 .held-fine b{color:var(--ice);font-weight:500}
 
-/* ---------- FAQ ---------- */
-.faq{padding:clamp(48px,8vh,90px) 0}
-.faq-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:8px;
-  padding:8px clamp(24px,4vw,40px);
-}
-.faq-item{padding:26px 0;border-top:1px solid var(--line)}
-.faq-item:first-child{border-top:none}
-.faq-item h3{font-family:var(--display);font-weight:500;font-size:1.18rem;margin-bottom:10px;color:var(--ice)}
-.faq-item p{color:var(--mist);font-size:.98rem;line-height:1.75;max-width:74ch}
-
 /* ---------- Contact ---------- */
-.contact{padding:clamp(64px,10vh,110px) 0 clamp(80px,12vh,130px)}
+.contact{padding:clamp(64px,10vh,110px) 0}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:start}
 @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
 .contact-copy p{color:var(--mist);margin-top:16px;max-width:44ch;line-height:1.8}
@@ -241,7 +263,7 @@ input::placeholder{color:var(--faint)}
 footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-index:1;background:var(--space)}
 .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
 .foot-brand{font-family:var(--display);font-weight:600;font-size:.95rem}
-.foot-brand::after{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);margin-left:4px}
+
 .foot-legal{font-size:.72rem;color:var(--faint);max-width:64ch;line-height:1.7}
 
 /* ---------- Motion (kept minimal) ---------- */
@@ -262,7 +284,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
 
 <nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="#top">WorldVest</a>
+    <a class="logo" href="#top">WorldVest<span class="dot">.</span>AI</a>
   </div>
 </nav>
 
@@ -285,9 +307,9 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
 
   <section class="brand">
     <div class="wrap">
-      <h1 class="brand-title reveal">WorldVest</h1>
-      <p class="brand-audience reveal">Built for treasurers, payroll platforms, and benefits administrators.</p>
-      <p class="brand-copy reveal">WLDVST is a fully reserved digital dollar for cross-border payroll, corporate treasury, and benefits funding — redeemable 1:1 for U.S. dollars, interoperable with USDC, and settled in seconds instead of days.</p>
+      <h1 class="brand-title reveal">WorldVest<span class="dot">.</span>AI</h1>
+      <p class="brand-statement reveal">Stablecoin alternative<br>funding for employee benefits</p>
+      <p class="brand-copy reveal">WVDC is a fully reserved digital dollar built to fund employee benefits, captives, and reinsurance structures — plus the payroll and treasury flows around them. Redeemable 1:1 for U.S. dollars, interoperable with USDC, and settled in seconds instead of days.</p>
       <div class="brand-actions reveal">
         <a class="btn btn-green" href="#contact">Book an exploratory call</a>
         <a class="btn btn-ghost" href="#how">How it works</a>
@@ -300,9 +322,9 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
   <section class="peg" id="peg">
     <div class="wrap">
       <div class="peg-eq reveal">
-        <span class="tok">1 WLDVST</span><span class="eq">=</span><span>1.00 USD</span>
+        <span class="tok">1 WVDC</span><span class="eq">=</span><span>1.00 USD</span>
       </div>
-      <p class="peg-note reveal">Fully reserved. Redeemable at par. Settles in USDC.</p>
+      <p class="peg-note reveal"><span class="coin-name">WorldVest Digital Coin</span> — Fully reserved. Redeemable at par. Settles in USDC.</p>
       <p class="chains reveal">Available on <span>Ethereum</span> and <span>Solana</span> blockchain</p>
       <!-- Structural facts about the product — safe to show pre-launch. Live figures go on the reserves page. -->
       <div class="stats reveal">
@@ -329,42 +351,33 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
 
   <div class="wrap"><hr class="rule"></div>
 
-  <section class="trust">
-    <div class="wrap">
-      <p class="trust-label reveal">Reserves, custody, and audits handled by regulated partners</p>
-      <!-- PLACEHOLDER — replace with real partner names/logos once signed -->
-      <div class="trust-row reveal">
-        <div class="trust-item">Banking Partner</div>
-        <div class="trust-item">Reserve Custodian</div>
-        <div class="trust-item">Independent Auditor</div>
-        <div class="trust-item">Legal Counsel</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap"><hr class="rule"></div>
-
   <section class="pillars" id="how">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="kicker">What it's for</div>
-        <h2>One digital dollar. Three institutional use cases.</h2>
+        <h2>Built first for employee benefits funding.</h2>
       </div>
       <div class="pillar-grid">
-        <div class="pillar reveal">
-          <div class="pillar-tag">Cross-border payroll</div>
-          <h3>Pay teams anywhere, same day</h3>
-          <p>Fund payroll in WLDVST and pay contractors and employees across borders in seconds, for a fraction of wire and FX costs — with a clear off-ramp to local currency.</p>
+        <div class="pillar pillar-lead reveal">
+          <div class="pillar-tag">Primary use case</div>
+          <h3>Fund benefit reserves with digital dollars</h3>
+          <p>Employers, captives, and TPAs hold reserves against future claims — money that has to be safe, liquid, and auditable. WVDC lets you hold and move those reserves as stable, redeemable cash equivalents that settle instantly and are visible on-chain, without waiting on wires or banking hours.</p>
+          <ul class="pillar-list">
+            <li>Fund self-insured plans and captive structures</li>
+            <li>Move reserves between entities same-day</li>
+            <li>Auditable position and transfer history</li>
+            <li>Redeem to U.S. dollars when claims come due</li>
+          </ul>
         </div>
         <div class="pillar reveal">
-          <div class="pillar-tag">Corporate treasury</div>
-          <h3>Dollars that move at business speed</h3>
+          <div class="pillar-tag">Also supports</div>
+          <h3>Cross-border payroll</h3>
+          <p>Pay contractors and employees across borders in seconds, for a fraction of wire and FX costs — with a clear off-ramp to local currency.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-tag">Also supports</div>
+          <h3>Corporate treasury</h3>
           <p>Hold operating cash as stable, redeemable digital dollars. Move between entities, markets, and USDC liquidity instantly — no cutoff times, no correspondent banks.</p>
-        </div>
-        <div class="pillar reveal">
-          <div class="pillar-tag">Benefits funding</div>
-          <h3>On-chain dollars for benefit reserves</h3>
-          <p>Fund employer benefits, captives, and reinsurance structures with stable, auditable cash equivalents — visible on-chain, redeemable at par when obligations come due.</p>
         </div>
       </div>
     </div>
@@ -376,44 +389,26 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
     <div class="wrap">
       <div class="section-head reveal">
         <div class="kicker">How your money is held</div>
-        <h2>Every WLDVST is a claim on a real dollar.</h2>
+        <h2>Every WVDC is a claim on a real dollar.</h2>
       </div>
       <div class="held-steps">
         <div class="held-step reveal">
           <h3>Reserved</h3>
-          <p>Every dollar you convert is held in cash and short-term U.S. treasuries at regulated custodians — segregated from WorldVest's own operating funds.</p>
+          <p class="held-q">Will it hold its value?</p>
+          <p>Every WVDC is backed one-for-one by cash and short-term U.S. treasuries, held at regulated custodians and segregated from WorldVest's own operating funds. It is designed to stay at exactly one dollar.</p>
         </div>
         <div class="held-step reveal">
           <h3>Verified</h3>
-          <p>Independent accountants attest to reserves on a published schedule, and our smart contracts are audited and continuously monitored.</p>
+          <p class="held-q">Who is holding my money?</p>
+          <p>Your reserves sit in segregated accounts at named third-party custodians — not with us alone. Independent accountants attest to reserves on a published schedule, and our contracts are audited and continuously monitored.</p>
         </div>
         <div class="held-step reveal">
           <h3>Redeemable</h3>
-          <p>Redeem WLDVST 1:1 for U.S. dollars or swap to USDC at par, any time. Easy exit is the point — that's what makes it usable as treasury cash.</p>
+          <p class="held-q">Can I redeem at par whenever I want?</p>
+          <p>Redeem WVDC 1:1 for U.S. dollars or swap to USDC at par, any time. No lockups, no withdrawal windows — your money is available when claims come due.</p>
         </div>
       </div>
       <p class="held-fine reveal">Built for the era of the <b>GENIUS Act</b>: clear legal structure, licensed partners, and no gray zones.</p>
-    </div>
-  </section>
-
-  <div class="wrap"><hr class="rule"></div>
-
-  <section class="faq" id="faq">
-    <div class="wrap">
-      <div class="faq-card reveal">
-        <div class="faq-item">
-          <h3>Will it hold its value?</h3>
-          <p>Yes. Every WLDVST is backed one-for-one by cash and short-term U.S. treasuries, so it's designed to stay at exactly one dollar. Reserves are attested to by an independent accountant on a published schedule.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Can I redeem at par whenever I want?</h3>
-          <p>Yes. You can redeem WLDVST for U.S. dollars, or swap to USDC at par, on a same-day basis. There are no lockups and no withdrawal windows — your money is available when you need it.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Who is holding my money?</h3>
-          <p>Your reserves sit in segregated accounts at regulated custodians, kept entirely separate from WorldVest's operating funds. Custody, banking, and audit are handled by named third-party partners, not by us alone.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -423,8 +418,8 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
     <div class="wrap contact-grid">
       <div class="contact-copy reveal">
         <div class="kicker">Get in touch</div>
-        <h2>Talk to us about your use case.</h2>
-        <p>Whether you run treasury, payroll, a benefits program, or a platform that moves money across borders — leave your email and we'll schedule a 30-minute exploratory call. No pitch deck, just a working conversation about whether a stable digital dollar fits your operation.</p>
+        <h2>Talk to us about your benefits funding.</h2>
+        <p>Whether you're an employer running a self-insured plan, a captive manager, a TPA, or a benefits consultant — leave your email and we'll schedule a 30-minute exploratory call. No pitch deck, just a working conversation about whether a stable digital dollar fits how you fund and hold reserves.</p>
       </div>
       <div class="form-card reveal">
         <div id="formBody">
@@ -444,12 +439,27 @@ footer{border-top:1px solid var(--line);padding:32px 0 42px;position:relative;z-
     </div>
   </section>
 
+  <div class="wrap"><hr class="rule"></div>
+
+  <section class="trust">
+    <div class="wrap">
+      <p class="trust-label reveal">Reserves, custody, and audits handled by regulated partners</p>
+      <!-- PLACEHOLDER — replace with real partner names/logos once signed -->
+      <div class="trust-row reveal">
+        <div class="trust-item">Banking Partner</div>
+        <div class="trust-item">Reserve Custodian</div>
+        <div class="trust-item">Independent Auditor</div>
+        <div class="trust-item">Legal Counsel</div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <div class="wrap foot-inner">
-    <div class="foot-brand">WorldVest</div>
-    <p class="foot-legal">© 2026 WorldVest. WLDVST is a digital asset. This page is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities, or financial, legal, or tax advice. Digital assets involve risk. Availability subject to applicable law and licensing.</p>
+    <div class="foot-brand">WorldVest<span class="dot">.</span>AI</div>
+    <p class="foot-legal">© 2026 WorldVest.AI. WVDC is a digital asset. This page is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities, or financial, legal, or tax advice. Digital assets involve risk. Availability subject to applicable law and licensing.</p>
   </div>
 </footer>
 
